@@ -3,6 +3,8 @@ import prisma from "../lib/prisma";
 
 const router = Router();
 
+// Router for creating tasks
+
 router.post('/', async (req, res) => {
 
     try {
@@ -29,6 +31,8 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Router for previewing the tasks
+
 router.get('/', async (_req, res) => {
     try {
         const tasks = await prisma.task.findMany()
@@ -41,6 +45,8 @@ router.get('/', async (_req, res) => {
     }
 
 })
+
+// Router for previewing the specific tasks
 
 router.get('/:id', async (req, res) => {
     try {
@@ -64,6 +70,8 @@ router.get('/:id', async (req, res) => {
         return res.status(500).json({ error: "Failed to fetch task"})
     }
 })
+
+// Router for updating tasks
 
 router.patch('/:id', async (req, res) => {
     try {
@@ -93,6 +101,8 @@ router.patch('/:id', async (req, res) => {
     }
 
 })
+
+// Router for deleting the tasks
 
 router.delete('/:id', async (req, res) => {
 

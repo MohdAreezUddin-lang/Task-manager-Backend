@@ -3,6 +3,7 @@ import cors from 'cors';
 import taskRouter from './routes/task.routes'
 
 const app = express();
+// Cors is important for forming an connection between frontend and backend
 app.use(cors());
 
 
